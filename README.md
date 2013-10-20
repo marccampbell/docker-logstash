@@ -17,7 +17,7 @@ Clone [this repo](https://github.com/marccampbell/docker-logstash) and run `go b
 
 ### Requirements
 
-Logstash 1.2.1 is required.  A new `input1` is required in logstash:
+Logstash 1.2.1 is required.  A new `input` is required in logstash:
 
 ```
   tcp {
