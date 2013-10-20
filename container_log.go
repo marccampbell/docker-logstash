@@ -1,12 +1,8 @@
 package main
 
-import {
+import (
     "net"
-    "fmt"
-    "bufio"
-    "encoding/json"
-    "time"
-}
+)
 
 type containerLog struct {
     dockerConn net.Conn
@@ -24,7 +20,7 @@ var c *containerLog
 
 func newContainerLog() *containerLog {
     dockerConn, _ := net.Dial("unix", "/var/run/docker.sock")
-    logstashAddr, _ := net.ResolveUDPAddr("udp", "172.17.42.1:9125")
+    logstashAddr, _ := net.ResolveTCPAddr("udp", "172.17.42.1:9125")
 
     return &containerLog{
         dockerConn: dockerConn,
@@ -33,5 +29,4 @@ func newContainerLog() *containerLog {
 }
 
 func (w *containerLog) Attach() {
-
 }
